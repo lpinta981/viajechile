@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoja de Rutas</title>
-    <link rel="icon" type="image/png" href="https://previews.123rf.com/images/yupiramos/yupiramos1605/yupiramos160505334/56133484-gastos-de-viaje-de-dise%C3%B1o-ejemplo-gr%C3%A1fico-del-vector-eps10.jpg">
+    <title>PROYECTOS</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/kXdCrCc1/LOGO-MANA-SAKILLA-5.png">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+            .then(function(registration) {
+                console.log('Service Worker registrado con éxito:', registration.scope);
+            }).catch(function(error) {
+                console.log('Error al registrar el Service Worker:', error);
+            });
+        }
+    </script>
+
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            width: 100%;
             overflow: hidden;
         }
         iframe {
-            border: none;
             width: 100%;
             height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbwWoO-FbX5O42OQYDm1IOHzFcUXrPAbqsFzOB45585SDP1ds7L41qLLuPAzQjSBurx2/exec" title="Hoja de Rutas"></iframe>
+    <iframe src="https://script.google.com/macros/s/AKfycbwWoO-FbX5O42OQYDm1IOHzFcUXrPAbqsFzOB45585SDP1ds7L41qLLuPAzQjSBurx2/exec"></iframe>
 </body>
 </html>
