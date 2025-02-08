@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GESTIÓN DE PROYECTOS</title>
+  <title>PROYECTOS</title>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://i.postimg.cc/kDrmdkK3/TRANSPARENTE.jpg">
@@ -41,20 +41,28 @@
   <iframe id="iframeAppscript"></iframe>
 
   <script>
-    // Leer el parámetro de la URL de la página principal
+    // Capturamos los parámetros de la URL de la página principal
     const params = new URLSearchParams(window.location.search);
-    const idProyecto = params.get('idProyecto');
+    console.log("Parámetros en la URL:", Array.from(params.entries()));
 
-    // Definir la URL base de tu AppScript
+    // Obtenemos el parámetro idProyecto
+    const idProyecto = params.get('idProyecto');
+    console.log("Valor de idProyecto:", idProyecto);
+
+    // Definimos la URL base de tu AppScript
     let iframeSrc = "https://script.google.com/macros/s/AKfycbxK2GFE3MYFtCqHDuNMAS-ZRDEXM83Bl1mwrPf4MOWlDxnhqiOE2_EZIVaJZ38ne5hMfg/exec";
 
-    // Si existe idProyecto, agregarlo como query parameter
+    // Si existe el parámetro idProyecto, lo agregamos a la URL del iframe
     if (idProyecto) {
-      iframeSrc += '?idProyecto=' + idProyecto;
+      iframeSrc += '?idProyecto=' + encodeURIComponent(idProyecto);
+      console.log("Se agregó idProyecto a la URL del iframe:", iframeSrc);
+    } else {
+      console.log("No se encontró idProyecto, se usará la URL base:", iframeSrc);
     }
 
-    // Asignar la URL al src del iframe
+    // Asignamos la URL construida al atributo src del iframe
     document.getElementById('iframeAppscript').src = iframeSrc;
+    console.log("Iframe cargado con src:", document.getElementById('iframeAppscript').src);
   </script>
 </body>
 </html>
